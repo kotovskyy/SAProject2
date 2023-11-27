@@ -17,7 +17,7 @@ class RecursiveLeastSquares:
         
         
         err = y - self.Phi @ self.A[self.n]
-        correction = self.P[self.n] @ self.Phi.T @ err
+        correction = P @ self.Phi.T @ err
     
         A = self.A[self.n] + correction
 

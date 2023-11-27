@@ -7,7 +7,7 @@ N = 2000
 N_array = np.arange(N)
 
 X = np.random.random(N)*2+1
-A = np.random.randint(10, 2000, 3)
+A = [1, 10, -5]
 print("A:", A)
 V = np.zeros(N)
 V[0] = X[0] * A[0]
@@ -23,7 +23,7 @@ noise = noise_stdev * np.random.randn(N)
 Y = V + noise
 
 A0 = np.zeros(3)
-P0 = 1 * np.eye(3, 3)
+P0 = 1000 * np.eye(3, 3)
 
 RLS = RecursiveLeastSquares(A0, P0, X[0], X[1])
 for i in range(2, N):
@@ -61,4 +61,3 @@ plt.title("Estimated vs. True Values over Iterations")
 plt.xlabel("Iteration")
 plt.ylabel("Value")
 plt.show()
-
