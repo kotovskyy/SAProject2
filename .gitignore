@@ -1,4 +1,4 @@
 .python-version
 test.py
 .vscode/
-__pychache__/
+**/__pychache__/**
