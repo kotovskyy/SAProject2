@@ -8,12 +8,12 @@ class RecursiveLeastSquares:
         self.n = 0
         self.Phi = np.array([[0, x1, x0]])
 
-    def predict(self, x, y):
+    def predict(self, x, y, lmbd=1):
         self.Phi[0][0] = x
         
         P_u = self.P[self.n] @ self.Phi.T @ self.Phi @ self.P[self.n]
-        P_d = 1 + self.Phi @ self.P[self.n] @ self.Phi.T
-        P = self.P[self.n] - P_u * (1/P_d)
+        P_d = lmbd + self.Phi @ self.P[self.n] @ self.Phi.T
+        P = (self.P[self.n] - P_u * (1/P_d))/lmbd
         
         
         err = y - self.Phi @ self.A[self.n]
